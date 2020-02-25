@@ -18,12 +18,13 @@ class TipCalc extends Component {
             const total = bill + tip
 
             return (
-                <div>
-                    <h1>{bill}</h1>
-                    <h1>{tip}</h1>
+                <div style={styles.container}>
+                    <span style={styles.output}>{tip}</span>
+                    <span style={styles.output}>{total}</span>
 
                     <label for="bill-amount">Bill</label>
                     <input 
+                        style={styles.input}
                         id="bill-amount"
                         type="text"
                         value={this.state.bill}
@@ -34,6 +35,7 @@ class TipCalc extends Component {
 
                     <label for="input-tip-percent">Tip %</label>
                     <input
+                        style={styles.input}
                         id="input-tip-percent"
                         type="number"
                         value={this.state.tipPercent}
@@ -47,3 +49,22 @@ class TipCalc extends Component {
     }
 
 export default TipCalc
+
+const fontSize = 24
+const padding = 0.5
+
+const styles = {
+    container: {
+        display: 'flex',
+        flexDirection: 'column'
+    },
+    input: {
+        padding: `${padding}em`,
+        fontSize: `${fontSize}px`
+    },
+    output: {
+        padding: `${padding}em`,
+        fontSize: `${fontSize * 1.5}px`,
+        fontWeight: 'bold'
+    }
+}
