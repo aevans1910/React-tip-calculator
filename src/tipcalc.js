@@ -12,11 +12,19 @@ class TipCalc extends Component {
         }
 
         render() {
+            const bill = parseFloat(this.state.bill)
+            const tipPercent = parseInt(this.state.tipPercent)
+            const tip = bill * tipPercent / 100
+            const total = bill + tip
+
             return (
                 <div>
-                    <h1>{this.state.bill}</h1>
-                    <h1>{this.state.tipPercent}</h1>
+                    <h1>{bill}</h1>
+                    <h1>{tip}</h1>
+
+                    <label for="bill-amount">Bill</label>
                     <input 
+                        id="bill-amount"
                         type="text"
                         value={this.state.bill}
                         onChange={(e) => {
@@ -24,7 +32,9 @@ class TipCalc extends Component {
                         }}
                     />
 
+                    <label for="input-tip-percent">Tip %</label>
                     <input
+                        id="input-tip-percent"
                         type="number"
                         value={this.state.tipPercent}
                         onChange={(e) => {
